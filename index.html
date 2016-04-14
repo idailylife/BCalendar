@@ -7,28 +7,57 @@
         <link href='http://fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
     </head>
 	<body>
-		<div class="center_container">
-			<div id="cal_header">
-				<ul class = "nopadding title">
-                    <li class="li-inline highlighted big-title">&lt;</li>
-                    <li class="li-inline highlighted" id="month_title"></li>
-                    <!--buttons-->
-                </ul>
+		<div id="viewport_container">
+			<input type="checkbox" id="leftDivSwitch">
+			<div id="year-select-container">
+				<div class="yr-scroll top-scr" id="year-up">
+					<div class="top-arrow"></div>
+				</div>
+				<ul id="ul-year">
+				</ul>
+				<div class="yr-scroll bottom-scr" id="year-down">
+					<div class="bottom-arrow"></div>
+				</div>
 			</div>
-			<!--TODO: Sun Mon Tue ...-->
-			<table id="calendar">
-				<tr class="weekline">
-					<td class="weekend">日</td>
-					<td >一</td><td>二</td><td>三</td><td>四</td><td>五</td>
-					<td class="weekend">六</td>
-				</tr>
-			</table>
-            <div id = "event-container">
-                <ul id = "events" class="events">
 
-                </ul>
-            </div>
+			<div class="center_container">
+				<div id="cal_header">
+					<ul class = "nopadding title">
+						<!--
+                        <li class="li-inline highlighted big-title">
+                            <div>&lt;</div>
+                        </li>
+                        <li class="li-inline highlighted" id="month_title"></li>
+                        -->
+						<li class="li-inline highlighted" id="year-sel">&lt;</li>
+						<li class="li-inline highlighted" id="year-num"></li>
+						<li class="li-inline highlighted">年</li>
+						<li class="li-inline highlighted"id="month-num"></li>
+						<li class="li-inline highlighted">月</li>
+						<!--buttons-->
+						<li class="li-inline li-right" id="add-event">A</li>
+						<li class="li-inline li-right" id="back-to-today">T</li>
+						<li class="li-inline li-right" id="month-right">&gt;</li>
+						<li class="li-inline li-right" id="month-left">&lt;</li>
+
+					</ul>
+				</div>
+
+				<table id="calendar">
+					<tr class="weekline">
+						<td class="weekend">日</td>
+						<td >一</td><td>二</td><td>三</td><td>四</td><td>五</td>
+						<td class="weekend">六</td>
+					</tr>
+				</table>
+				<div id = "event-container">
+					<ul id = "events" class="events">
+
+					</ul>
+				</div>
+			</div>
 		</div>
+
 		<script type="text/javascript" src="js/dateHelper.js"></script>
         <script type="text/javascript" src="js/monthView.js"></script>
         <script type="text/javascript">

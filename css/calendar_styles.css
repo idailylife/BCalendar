@@ -1,16 +1,116 @@
 
+#viewport_container{
+	margin:0px auto;
+	width: 35em;
+	max-height: 45em;
+	padding: 0;
+	overflow: hidden;
+}
+
+#year-select-container{
+	position: absolute;
+	overflow: hidden;
+	font-size: 1em;
+	max-height: 45em;
+	z-index: -1;
+	background-color: #f7f7f7;
+	color: #a1a1a1;
+}
+
+#year-sel{
+	width:2em;
+}
+
+#year-sel:hover{
+	background-color: #ff3b30;
+	border-radius: 0.1em;
+	color: #f7f7f7;
+}
+
+#year-num:hover{
+	background-color: #ff3b30;
+	border-radius: 0.1em;
+	color: #f7f7f7;
+}
+
+#ul-year{
+	list-style-type: none;
+	font-size:1.5em;
+	padding-left: 0;
+	padding-top: 0;
+	margin-top: 0;
+	transition-duration: 0.5s;
+}
+
+.yr-scroll{
+	position: absolute;
+	z-index: 1;
+	height: 2em;
+	width: 10em;
+	background-color: #f7f7f7;
+	color: #ff3b30;
+}
+
+.top-scr{
+	top:0;
+	background-color: #f7f7f7;
+}
+
+.top-arrow{
+	width: 0;
+	height: 0;
+	border:1em solid transparent;
+	border-bottom: 1em solid red;
+	margin: -0.5em auto;
+}
+
+.bottom-scr{
+	bottom: 0;
+}
+
+.bottom-arrow{
+	width: 0;
+	height: 0;
+	border:1em solid transparent;
+	border-top: 1em solid red;
+	margin: 0.5em auto;
+}
+
+.li-year{
+	margin-top: 0.5em;
+	padding-left: 2.2em;
+	width: 10em;
+}
+
+.yselected{
+	background-color: red;
+	color: white;
+}
+
 .center_container{
 	margin: 0px auto;
 	width: 35em;
+	overflow: hidden;
+	background-color: #ffffff;
 }
 
 #cal_header{
 	background-color: #f7f7f7;
 	height: 3.5em;
+	padding-top: 0.5em;
 }
 
 .li-inline{
 	display: inline;
+	position: relative;
+}
+
+.li-inline:first-child{
+	margin-left: 0.5em;
+}
+
+.li-right{
+	float:right;
 }
 
 .nopadding{
@@ -20,6 +120,22 @@
 .highlighted{
 	color: #ff3b30;
 }
+
+
+#leftDivSwitch{
+	display: none;
+	margin: 0;
+}
+
+#leftDivSwitch:checked~.center_container {
+	transform: translateX(10em);
+	transition-duration: 1s;
+}
+
+#leftDivSwitch:checked~#year-select-container{
+	z-index: 0;
+}
+
 
 .title{
 	font-size: 1.5em;
@@ -31,6 +147,16 @@
 	font-weight: 600;
 	padding-left: 0.5em;
 }
+
+#year-month-sel{
+	display: none;
+}
+
+/*#select-year{*/
+	/*position: relative;*/
+	/*top:	0;*/
+	/*left:	0;*/
+/*}*/
 
 .weekline{
 	font-size: 0.8em;

@@ -1,29 +1,30 @@
 /**月视图
  */
 
-selectedDay = -1;
+selectedDay = new Date().getDate();
 CLASS_NAME_DIV_CONTAINER = "dcontain";
 CLASS_NAME_DIV_CONTAINER_SELECTED = "selected";
 calendarObj = null;
+doneInit = false;   //是否已经初始化过
+ulYearYoffset = 0;
 
 function makeMonthView(year, month, day){
-    if(year <= 1900 || month < 1|| month > 12 || day<1 || day>31) {
+    if(year < 1900 || month < 1|| month > 12 || day<1 || day>31) {
         console.log("year/month is illegal, reset to 1992/03");
         year = 1992;
         month = 3;
         day = 29;
     }
-    
-    selectedDay = -1;
+
     //Make Calendar
     var tableObj = document.getElementById("calendar");
     calendarObj = makeMonthCalendar(tableObj, year, month);
     //Make Title
-    var headerObj = document.getElementById("month_title");
-    makeMonthHeader(headerObj, year, month);
+    makeMonthHeader( year, month);
     //Make Event View
     var eventObj = document.getElementById("events");
     makeEventsView(eventObj, calendarObj.caldates[day-1]);
+    doneInit = true;
 }
 
 function selectDay(){
@@ -64,10 +65,104 @@ function selectDay(){
     makeEventsView(eventObj, calendarObj.caldates[selectedDay-1]);
 }
 
-function makeMonthHeader(headerObj, year, month){
+function makeMonthHeader(year, month){
     //headObj为传入的div对象
-    var titleText = year + "年"  + month + "月";
-    headerObj.innerHTML = titleText;
+    var yearObj = document.getElementById("year-num");
+    yearObj.innerHTML = year;
+    var monthObj = document.getElementById("month-num");
+    monthObj.innerHTML = month;
+
+    var yearSelObj = document.getElementById("year-sel");
+    var switchObj = document.getElementById("leftDivSwitch");
+    if(!doneInit){
+        yearSelObj.addEventListener("click", function () {
+            if(switchObj.checked == true){
+                switchObj.checked = false;
+            } else {
+                switchObj.checked = true;
+            }
+        });
+        yearObj.addEventListener("click", function () {
+            if(switchObj.checked == true){
+                switchObj.checked = false;
+            } else {
+                switchObj.checked = true;
+            }
+        });
+    }
+
+    var ulObj = document.getElementById("ul-year");
+    if(!doneInit){
+        //Set onscroll listener
+        document.getElementById("year-up").addEventListener("click", function () {
+            ulYearYoffset += 2.0;
+            if(ulYearYoffset > 5){
+                ulYearYoffset = 0;
+            }
+            document.getElementById("ul-year").style.transform = "translateY(" + ulYearYoffset + "%)";
+        });
+
+        document.getElementById("year-down").addEventListener("click", function () {
+            ulYearYoffset -= 2.0;
+            if(ulYearYoffset < -105){
+                ulYearYoffset = -100;
+            }
+            document.getElementById("ul-year").style.transform = "translateY(" + ulYearYoffset + "%)";
+        });
+
+        document.getElementById("month-left").addEventListener("click", function () {
+            monthSelectionChange(-1);
+        });
+        document.getElementById("month-right").addEventListener("click", function () {
+            monthSelectionChange(1);
+        });
+    }
+    var CLASS_NAME_LI_YEAR = "li-year";
+    if(ulObj.children.length < 1){
+        for(var y = 1900; y < 2100; y++){
+            var liObj = document.createElement("li");
+            liObj.innerHTML = y;
+
+            if(y == year)
+                liObj.className = CLASS_NAME_LI_YEAR + " yselected";
+            else
+                liObj.className = CLASS_NAME_LI_YEAR;
+            liObj.addEventListener("click", yearSelectionChange);
+            ulObj.appendChild(liObj);
+        }
+    } else {
+        for(var y = 1900; y < 2100; y++){
+            var liObj = ulObj.children[y - 1900];
+            if(y == year)
+                liObj.className = CLASS_NAME_LI_YEAR + " yselected";
+            else
+                liObj.className = CLASS_NAME_LI_YEAR;
+        }
+    }
+
+    ulYearYoffset = (1908-year)/2;
+    ulObj.style.transform = "translateY(" + ulYearYoffset + "%)";
+}
+
+function yearSelectionChange(){
+    console.log(this.innerHTML);
+    var year = parseInt(this.innerHTML);
+    makeMonthView(year, calendarObj.month, selectedDay);
+}
+
+function monthSelectionChange(type){
+    console.log(type);
+    var year = calendarObj.year;
+    var month = calendarObj.month + type;
+    var day = selectedDay;
+    if(month < 1){
+        month = 12;
+        year --;
+    } else if (month > 12) {
+        month = 1;
+        year ++;
+    }
+    makeMonthView(year, month, day);
 }
 
 function clearMonthCalendar(tableObj){
@@ -160,7 +255,7 @@ function makeMonthCalendar(tableObj, year, month){
 }
 
 function clearEventView(eventObj) {
-    var childNodes = eventObj.childNodes;
+    var childNodes = eventObj.children;
     for(var i=childNodes.length-1; i>=0; i--){
         eventObj.removeChild(childNodes[i]);
     }
