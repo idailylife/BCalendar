@@ -39,6 +39,7 @@ function makeMonthCalendar(tableObj, year, month){
     var CLASS_NAME_DIV_CONTAINER = "dcontain";
     var CLASS_NAME_P_DATE = "pdate";
     var CLASS_NAME_P_LUNAR = "plunar";
+    var CLASS_NAME_P_LUNAR_START = "lunar-start";
     var CLASS_NAME_WEEKEND = "weekend";
     var CLASS_NAME_DOT = "dot";
     var CLASS_NAME_WHITE_DOT = "white-dot";
@@ -79,6 +80,10 @@ function makeMonthCalendar(tableObj, year, month){
                 divObj.appendChild(pObj);
                 pObj = document.createElement("p");
                 pObj.className = CLASS_NAME_P_LUNAR;
+                if(dateObj.lunarDay == 1){
+                    //农历每个月第一天
+                    pObj.className += " " + CLASS_NAME_P_LUNAR_START;
+                }
                 pObj.innerHTML = lunarHelper.getLunarDayStr(dateObj.lunarMonth, dateObj.lunarDay);
                 divObj.appendChild(pObj);
                 objTd.appendChild(divObj);

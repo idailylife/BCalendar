@@ -1,7 +1,7 @@
 
 .center_container{
 	margin: 0px auto;
-	width: 100%;
+	width: 35em;
 }
 
 .li-inline{
@@ -17,12 +17,13 @@
 }
 
 .title{
-	font-size: 1em;
+	font-size: 1.5em;
 	line-height: 1.5em;
 }
 
 .big-title{
 	font-size: 1.5em;
+	font-weight: 600;
 }
 
 .weekline{
@@ -39,15 +40,33 @@
 	color: #a2a2a2;
 }
 
+/*.dcontain > p{*/
+/*line-height: 0.8em;*/
+/*margin-top: 0.2em;*/
+/*margin-bottom: 0.2em;*/
+/*-webkit-margin-before: 0.2em;*/
+/*-webkit-margin-after: 0.2em;*/
+/*}*/
+
 .pdate{
+	margin-top: 0.2em;
+	margin-bottom: 0;
+	line-height: 0.8em;
 	font-size: 2em;
 	font-weight: 600;
 	font-family: 'Open Sans', sans-serif;
 }
 
 .plunar{
+	height: 1.5em;
 	font-size: 1em;
 	font-weight: 500;
+	width: 2em;
+	margin: 0.1em auto 0 auto;
+}
+
+.lunar-start{
+	border-bottom: 2px solid #ff3b30;
 }
 
 #calendar{
@@ -64,7 +83,9 @@
 	height: 4em;
 	border-radius: 2em;
 	margin-left: 0.5em;
+	margin-right: 0.5em;
 	padding-top: 0.1em;
+	float:left;
 }
 
 .today{
@@ -72,13 +93,12 @@
 	color: #ffffff;
 }
 
-.dcontain > p{
-	line-height: 0.8em;
-	margin-top: 0.2em;
-	margin-bottom: 0.2em;
-	-webkit-margin-before: 0.2em;
-	-webkit-margin-after: 0.2em;
+.selected{
+	background-color: #000000;
+	color: #ffffff;
 }
+
+
 
 .dot{
 	width: 0.5em;
@@ -86,10 +106,18 @@
 	background-color: #cccccc;
 	border-radius: 0.5em;
 	display: inline-block;
+	margin-bottom: 0.1em;
+	margin-left: 2.25em;
+	float: left;
 }
 
 .white-dot{
 	background-color: #ffffff;
+}
+
+#event-container{
+	height: 4em;
+	width: 5em;
 }
 
 *{
