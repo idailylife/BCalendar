@@ -1,0 +1,100 @@
+
+.center_container{
+	margin: 0px auto;
+	width: 100%;
+}
+
+.li-inline{
+	display: inline;
+}
+
+.nopadding{
+	padding: 0 0 0 0;
+}
+
+.highlighted{
+	color: #ff3b30;
+}
+
+.title{
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+.big-title{
+	font-size: 1.5em;
+}
+
+.weekline{
+	font-size: 0.8em;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.item_tr > td{
+	font-size: 1em;
+	width: 5em;
+}
+
+.weekend{
+	color: #a2a2a2;
+}
+
+.pdate{
+	font-size: 2em;
+	font-weight: 600;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.plunar{
+	font-size: 1em;
+	font-weight: 500;
+}
+
+#calendar{
+	border-collapse: collapse;
+	text-align: center;
+}
+
+#calendar > tr{
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.dcontain{
+	width: 4em;
+	height: 4em;
+	border-radius: 2em;
+	margin-left: 0.5em;
+	padding-top: 0.1em;
+}
+
+.today{
+	background-color: #ff3b30;
+	color: #ffffff;
+}
+
+.dcontain > p{
+	line-height: 0.8em;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	-webkit-margin-before: 0.2em;
+	-webkit-margin-after: 0.2em;
+}
+
+.dot{
+	width: 0.5em;
+	height: 0.5em;
+	background-color: #cccccc;
+	border-radius: 0.5em;
+	display: inline-block;
+}
+
+.white-dot{
+	background-color: #ffffff;
+}
+
+*{
+	font-family: '微软雅黑', '黑体', 'Open Sans', sans-serif;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
