@@ -3,6 +3,7 @@ function Calendar(year, month){
 	this.month = month;
 	this.caldates = Array();
 	this.firstDayOffset; //当月第一天的偏移量(周日:0，周一:1，...)
+	this.isCurrentYearMonth = false;
 }
 Calendar.prototype = {
 	daysOfMonth : Array(31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31), //二月份后面算闰年
@@ -33,10 +34,18 @@ Calendar.prototype = {
 			cal = new CalDate(this.year, this.month, i);
 			if(!simplified){
 				cal.makeDate();
+				if(cal.isToday()){
+					this.isCurrentYearMonth = true;
+				}
+				var eventObj;
 				if(solarTermStr[0] == i){
-					cal.events[cal.events.length] = solarTermStr[1];
+					//cal.events[cal.events.length] = solarTermStr[1];
+					eventObj = new CalEvent(CalEvent.prototype.TYPE_SOLAR_TERM, solarTermStr[1]);
+					cal.events[cal.events.length] = eventObj;
 				} else if(solarTermStr[2] == i){
-					cal.events[cal.events.length] = solarTermStr[3];
+					//cal.events[cal.events.length] = solarTermStr[3];
+					eventObj = new CalEvent(CalEvent.prototype.TYPE_SOLAR_TERM, solarTermStr[3]);
+					cal.events[cal.events.length] = eventObj;
 				}
 			}
 			this.caldates[this.caldates.length] = cal;
@@ -115,12 +124,17 @@ CalDate.prototype.makeDate = function(){
 	//添加节假日事件
 	var eh = new EventHelper();
 	var eventStr = eh.getPublicHoliday(this.year, this.month, this.day);
+	var eventObj;
 	if(null != eventStr){
-		this.events[this.events.length] = eventStr;
+		eventObj = new CalEvent(CalEvent.prototype.TYPE_PUBLIC_HOLIDAY, eventStr);
+		this.events[this.events.length] = eventObj;
+		//this.events[this.events.length] = eventStr;
 	}
 	eventStr = eh.getLunarHoliday(this.lunarMonth, this.lunarDay);
 	if(null != eventStr){
-		this.events[this.events.length] = eventStr;
+		//this.events[this.events.length] = eventStr;
+		eventObj = new CalEvent(CalEvent.prototype.TYPE_LUNAR_HOLIDAY, eventStr);
+		this.events[this.events.length] = eventObj;
 	}
 }
 CalDate.prototype.isToday = function () {
@@ -131,6 +145,25 @@ CalDate.prototype.isToday = function () {
         return true;
     }
     return false;
+}
+
+
+function CalEvent(type, desc){
+	this.type = type;
+	this.desc = desc;
+	this.isFullday = true; //默认是全天事件
+	this.timeStart;	//date对象
+	this.timeEnd;	//date对象
+}
+CalEvent.prototype = {
+	TYPE_PUBLIC_HOLIDAY: "public-holiday",
+	TYPE_LUNAR_HOLIDAY: "lunar-holiday",
+	TYPE_SOLAR_TERM: "solar-term",
+	setTimeSpan : function (startDateObj, endDateObj) {
+		this.isFullday = false;
+		this.timeStart = startDateObj;
+		this.timeEnd = endDateObj;
+	}
 }
 
 function EventHelper(){

@@ -24,7 +24,9 @@
 				</tr>
 			</table>
             <div id = "event-container">
+                <ul id = "events" class="events">
 
+                </ul>
             </div>
 		</div>
 		<script type="text/javascript" src="js/dateHelper.js"></script>
@@ -32,7 +34,7 @@
         <script type="text/javascript">
         	(function(){
         		var dateObj = new Date();
-        		makeMonthView(dateObj.getFullYear(), dateObj.getMonth()+1);
+        		makeMonthView(dateObj.getFullYear(), dateObj.getMonth()+1, dateObj.getDate());
         	})();
         </script>
 	</body>

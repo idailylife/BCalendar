@@ -9,7 +9,7 @@
 }
 
 .nopadding{
-	padding: 0 0 0 0;
+	padding: 0;
 }
 
 .highlighted{
@@ -19,6 +19,8 @@
 .title{
 	font-size: 1.5em;
 	line-height: 1.5em;
+	margin: 0 0 0 0;
+	background-color: #f7f7f7;
 }
 
 .big-title{
@@ -34,6 +36,8 @@
 .item_tr > td{
 	font-size: 1em;
 	width: 5em;
+	z-index: 1;
+	padding: 0;
 }
 
 .weekend{
@@ -72,6 +76,7 @@
 #calendar{
 	border-collapse: collapse;
 	text-align: center;
+	background-color: #f7f7f7;
 }
 
 #calendar > tr{
@@ -86,6 +91,7 @@
 	margin-right: 0.5em;
 	padding-top: 0.1em;
 	float:left;
+	z-index: -1;
 }
 
 .today{
@@ -108,16 +114,64 @@
 	display: inline-block;
 	margin-bottom: 0.1em;
 	margin-left: 2.25em;
+	margin-top: 0.1em;
 	float: left;
 }
 
 .white-dot{
-	background-color: #ffffff;
+	background-color: #f7f7f7;
 }
 
 #event-container{
+	max-height: 20em;  /*需要算一下*/
+	width: 100%;
+}
+
+.events{
+	padding-left: 0;
+	margin: 0 0 0 0;
+}
+
+.event-li {
+	list-style: none;
+	width: 100%;
+	margin-left: 0;
 	height: 4em;
-	width: 5em;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.event-li > div{
+	float:left;
+}
+
+.event-time{
+	width: 25%;
+	padding-right: 5%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	border-right: 3px solid #ffffff;
+}
+
+.solar-term{
+	border-right-color: #ff3b30;
+}
+
+.public-holiday{
+	border-right-color: #cc73e1;
+}
+
+.lunar-holiday{
+	border-right-color: #ff3b30;
+}
+
+.event-time > p{
+	float:right;
+}
+
+.event-str{
+	width: 75%;
+	font-size: 1.5em;
+	padding-left: 3%;
 }
 
 *{
@@ -125,4 +179,8 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
 }
