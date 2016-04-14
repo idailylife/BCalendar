@@ -104,8 +104,13 @@ function makeMonthCalendar(tableObj, year, month){
         objTr = document.createElement("tr");
         objTr.className = CLASS_NAME_TR;
         for(col=0; col<7; col++){
-            if(calIndex >= calendar.caldates.length)
-                break;
+            if(calIndex >= calendar.caldates.length){
+                objTd = document.createElement("td");
+                objTd.className = CLASS_NAME_TD;
+                objTr.appendChild(objTd);
+                continue;
+            }
+
             objTd = document.createElement("td");
             objTd.className = CLASS_NAME_TD;
             if(row == 0 && col < offset){
