@@ -1,8 +1,42 @@
+@media only screen and (min-width: 768px){
+	#viewport_container{
+		max-width: 35rem;
+		height:100%;
+	}
+}
+
+
+@media only screen and (max-width: 768px){
+	html{
+		font-size: 100%;
+	}
+	#viewport_container{
+		width:100%;
+		max-width: 100%;
+		height: 100%;
+	}
+}
+
+@media only screen and (max-width: 480px){
+	html{
+		font-size: 80%;
+	}
+}
+
+@media only screen and (max-width: 360px){
+	html{
+		font-size: 70%;
+	}
+}
+
+@media only screen and (max-width: 340px){
+	html{
+		font-size: 50%;
+	}
+}
 
 #viewport_container{
 	margin:0px auto;
-	width: 35em;
-	max-height: 45em;
 	padding: 0;
 	overflow: hidden;
 }
@@ -10,32 +44,32 @@
 #year-select-container{
 	position: absolute;
 	overflow: hidden;
-	font-size: 1em;
-	max-height: 45em;
+	font-size: 1rem;
+	max-height: 100%;
 	z-index: -1;
 	background-color: #f7f7f7;
 	color: #a1a1a1;
 }
 
 #year-sel{
-	width:2em;
+	width:2rem;
 }
 
 #year-sel:hover{
 	background-color: #ff3b30;
-	border-radius: 0.1em;
+	border-radius: 0.1rem;
 	color: #f7f7f7;
 }
 
 #year-num:hover{
 	background-color: #ff3b30;
-	border-radius: 0.1em;
+	border-radius: 0.1rem;
 	color: #f7f7f7;
 }
 
 #ul-year{
 	list-style-type: none;
-	font-size:1.5em;
+	font-size:1.5rem;
 	padding-left: 0;
 	padding-top: 0;
 	margin-top: 0;
@@ -45,8 +79,8 @@
 .yr-scroll{
 	position: absolute;
 	z-index: 1;
-	height: 2em;
-	width: 10em;
+	height: 2rem;
+	width: 10rem;
 	background-color: #f7f7f7;
 	color: #ff3b30;
 }
@@ -59,9 +93,9 @@
 .top-arrow{
 	width: 0;
 	height: 0;
-	border:1em solid transparent;
-	border-bottom: 1em solid red;
-	margin: -0.5em auto;
+	border:1rem solid transparent;
+	border-bottom: 1rem solid red;
+	margin: -0.5rem auto;
 }
 
 .bottom-scr{
@@ -71,15 +105,16 @@
 .bottom-arrow{
 	width: 0;
 	height: 0;
-	border:1em solid transparent;
-	border-top: 1em solid red;
-	margin: 0.5em auto;
+	border:1rem solid transparent;
+	border-top: 1rem solid red;
+	margin: 0.5rem auto;
 }
 
 .li-year{
-	margin-top: 0.5em;
-	padding-left: 2.2em;
-	width: 10em;
+	margin-top: 0.5rem;
+	padding-left: 2.75rem;
+	width: 10rem;
+	font-size: 2rem;
 }
 
 .yselected{
@@ -89,15 +124,15 @@
 
 .center_container{
 	margin: 0px auto;
-	width: 35em;
+	height: 100%;
 	overflow: hidden;
 	background-color: #ffffff;
 }
 
 #cal_header{
 	background-color: #f7f7f7;
-	height: 3.5em;
-	padding-top: 0.5em;
+	height: 3.5rem;
+	padding-top: 0.5rem;
 }
 
 .li-inline{
@@ -106,21 +141,21 @@
 }
 
 .li-inline:first-child{
-	margin-left: 0.5em;
+	margin-left: 0.5rem;
 }
 
 .li-right{
 	float:right;
-	width:1.5em;
-	margin-left: 0.25em;
-	margin-right: 0.25em;
+	width:1.5rem;
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
 	text-align: center;
 }
 
 .li-right:hover{
 	background-color: #ff3b30;
 	color: #f7f7f7;
-	border-radius: 0.1em;
+	border-radius: 0.1rem;
 }
 
 .nopadding{
@@ -138,7 +173,7 @@
 }
 
 #leftDivSwitch:checked~.center_container {
-	transform: translateX(10em);
+	transform: translateX(10rem);
 	transition-duration: 1s;
 }
 
@@ -148,14 +183,14 @@
 
 
 .title{
-	font-size: 1.5em;
+	font-size: 1.5rem;
 	margin: 0 0 0 0;
 }
 
 .big-title{
-	font-size: 1.5em;
+	font-size: 1.5rem;
 	font-weight: 600;
-	padding-left: 0.5em;
+	padding-left: 0.5rem;
 }
 
 #year-month-sel{
@@ -169,13 +204,14 @@
 /*}*/
 
 .weekline{
-	font-size: 0.8em;
+	font-size: 0.8rem;
 	border-bottom: 1px solid #b2b2b2;
 }
 
-.item_tr > td{
-	font-size: 1em;
-	width: 5em;
+.item_td{
+	font-size: 1rem;
+	/*width: 5rem;*/
+	width: 14.285714%;
 	z-index: 1;
 	padding: 0;
 }
@@ -185,28 +221,28 @@
 }
 
 /*.dcontain > p{*/
-/*line-height: 0.8em;*/
-/*margin-top: 0.2em;*/
-/*margin-bottom: 0.2em;*/
-/*-webkit-margin-before: 0.2em;*/
-/*-webkit-margin-after: 0.2em;*/
+/*line-height: 0.8rem;*/
+/*margin-top: 0.2rem;*/
+/*margin-bottom: 0.2rem;*/
+/*-webkit-margin-before: 0.2rem;*/
+/*-webkit-margin-after: 0.2rem;*/
 /*}*/
 
 .pdate{
-	margin-top: 0.2em;
+	margin-top: 0.2rem;
 	margin-bottom: 0;
-	line-height: 0.8em;
-	font-size: 2em;
+	line-height: 2rem;
+	font-size: 2rem;
 	font-weight: 600;
 	font-family: 'Open Sans', sans-serif;
 }
 
 .plunar{
-	height: 1.5em;
-	font-size: 1em;
+	height: 1.5rem;
+	font-size: 1rem;
 	font-weight: 500;
-	width: 2em;
-	margin: 0.1em auto 0 auto;
+	width: 2rem;
+	margin: 0 auto 0 auto;
 }
 
 .lunar-start{
@@ -217,6 +253,7 @@
 	border-collapse: collapse;
 	text-align: center;
 	background-color: #f7f7f7;
+	width: 100%;
 }
 
 #calendar > tr{
@@ -224,13 +261,11 @@
 }
 
 .dcontain{
-	width: 4em;
-	height: 4em;
-	border-radius: 2em;
-	margin-left: 0.5em;
-	margin-right: 0.5em;
-	padding-top: 0.1em;
-	float:left;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 2rem;
+	margin-left: auto;
+	margin-right: auto;
 	z-index: -1;
 }
 
@@ -247,15 +282,12 @@
 
 
 .dot{
-	width: 0.5em;
-	height: 0.5em;
+	width: 0.5rem;
+	height: 0.5rem;
 	background-color: #cccccc;
-	border-radius: 0.5em;
+	border-radius: 0.5rem;
 	display: inline-block;
-	margin-bottom: 0.1em;
-	margin-left: 2.25em;
-	margin-top: 0.1em;
-	float: left;
+	margin: 0.1rem auto 0.1rem auto;
 }
 
 .white-dot{
@@ -263,7 +295,8 @@
 }
 
 #event-container{
-	max-height: 20em;  /*需要算一下*/
+	max-height: 100%;
+	height: 100%;
 	width: 100%;
 }
 
@@ -276,7 +309,7 @@
 	list-style: none;
 	width: 100%;
 	margin-left: 0;
-	height: 4em;
+	height: 4rem;
 	border-bottom: 1px solid #b2b2b2;
 }
 
@@ -310,7 +343,7 @@
 
 .event-str{
 	width: 75%;
-	font-size: 1.5em;
+	font-size: 1.5rem;
 	padding-left: 3%;
 }
 
@@ -323,4 +356,10 @@
 
 body{
 	margin: 0;
+	height: 100%;
+}
+
+html {
+	margin: 0;
+	height: 100%;
 }
