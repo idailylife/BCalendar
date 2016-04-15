@@ -217,7 +217,7 @@
 
 .item_td{
 	font-size: 1rem;
-	/*width: 5rem;*/
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	width: 14.285714%;
 	z-index: 1;
 	padding: 0;
@@ -354,6 +354,7 @@
 }
 
 #center-overlap{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	position: absolute;
 	top: 0;
 	left: 0;
