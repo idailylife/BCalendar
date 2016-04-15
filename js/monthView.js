@@ -27,7 +27,68 @@ function makeMonthView(year, month, day){
         day = selectedDay;
     }
     makeEventsView(eventObj, calendarObj.caldates[day-1]);
+
+    if(!doneInit){
+        registerEvents();
+    }
     doneInit = true;
+}
+
+function registerEvents() {
+    var calTableObj = document.getElementById("calendar");
+    var startX, startY;
+    calTableObj.addEventListener("touchstart", function (event) {
+        startX = event.touches[0].pageX;
+        startY = event.touches[0].pageY;
+    }, false);
+    calTableObj.addEventListener("touchend", function (event) {
+        var endX, endY;
+        endX = event.changedTouches[0].pageX;
+        endY = event.changedTouches[0].pageY;
+        var direction = GetSlideDirection(startX, startY, endX, endY);  //0:No move, 1:Up, 2:Down, 3:Left, 4:Right
+        switch (direction){
+            case 0:
+                break;
+            case 1: case 3:
+                //Prev month
+                monthSelectionChange(1);
+                break;
+            case 2: case 4:
+                monthSelectionChange(-1);
+                break;
+            default:
+                console.log('Wowow~ What happened!');
+                break;
+        }
+        //console.log(direction);
+    }, false);
+
+    var leftUlObj = document.getElementById("ul-year");
+    var ulStartX, ulStartY;
+    leftUlObj.addEventListener("touchstart", function (event) {
+        ulStartX = event.touches[0].pageX;
+        ulStartY = event.touches[0].pageY;
+    }, false);
+    leftUlObj.addEventListener("touchend", function (event) {
+        var ulEndX, ulEndY;
+        ulEndX = event.changedTouches[0].pageX;
+        ulEndY = event.changedTouches[0].pageY;
+        var ulDir = GetSlideDirection(ulStartX, ulStartY, ulEndX, ulEndY);
+        switch (ulDir) {
+            case 1:
+                scrollYear(2);
+                break;
+            case 2:
+                scrollYear(-2);
+                break;
+        }
+    }, false);
+
+    document.getElementById("center-overlap").addEventListener("click", function () {
+        document.getElementById("center-overlap").style.display = "none";
+        document.getElementById("leftDivSwitch").checked = false;
+        document.getElementById("center_container").style.transform = null;
+    }, false);
 }
 
 function selectDay(){
@@ -68,6 +129,22 @@ function selectDay(){
     makeEventsView(eventObj, calendarObj.caldates[selectedDay-1]);
 }
 
+function scrollYear(dir){
+    ulYearYoffset -= (2 * dir);
+    if(dir < 0){
+        //往较小年份滚动
+
+        if(ulYearYoffset > 5){
+            ulYearYoffset = 0;
+        }
+    } else if(dir > 0){
+        if(ulYearYoffset < -105){
+            ulYearYoffset = -100;
+        }
+    }
+    document.getElementById("ul-year").style.transform = "translateY(" + ulYearYoffset + "%)";
+}
+
 function makeMonthHeader(year, month){
     //headObj为传入的div对象
     var yearObj = document.getElementById("year-num");
@@ -77,12 +154,14 @@ function makeMonthHeader(year, month){
 
     var yearSelObj = document.getElementById("year-sel");
     var switchObj = document.getElementById("leftDivSwitch");
+    var overlapObj = document.getElementById("center-overlap");
     if(!doneInit){
         yearSelObj.addEventListener("click", function () {
             if(switchObj.checked == true){
                 switchObj.checked = false;
             } else {
                 switchObj.checked = true;
+                overlapObj.style.display = "block";
             }
         });
         yearObj.addEventListener("click", function () {
@@ -90,6 +169,7 @@ function makeMonthHeader(year, month){
                 switchObj.checked = false;
             } else {
                 switchObj.checked = true;
+                overlapObj.style.display = "block";
             }
         });
     }
@@ -98,19 +178,11 @@ function makeMonthHeader(year, month){
     if(!doneInit){
         //Set onscroll listener
         document.getElementById("year-up").addEventListener("click", function () {
-            ulYearYoffset += 2.0;
-            if(ulYearYoffset > 5){
-                ulYearYoffset = 0;
-            }
-            document.getElementById("ul-year").style.transform = "translateY(" + ulYearYoffset + "%)";
+            scrollYear(-1);
         });
 
         document.getElementById("year-down").addEventListener("click", function () {
-            ulYearYoffset -= 2.0;
-            if(ulYearYoffset < -105){
-                ulYearYoffset = -100;
-            }
-            document.getElementById("ul-year").style.transform = "translateY(" + ulYearYoffset + "%)";
+            scrollYear(1);
         });
 
         document.getElementById("month-left").addEventListener("click", function () {
@@ -297,7 +369,6 @@ function makeEventsView(eventObj, dateObj){
     var CLASS_NAME_RIGHT_DIV = "event-str";
     var CLASS_NAME_GREY_TEXT = "grey";
     //事件视图
-    //TODO:默认有7个事件槽
     clearEventView(eventObj);
     var events = dateObj.events;
     var i, liObj;
