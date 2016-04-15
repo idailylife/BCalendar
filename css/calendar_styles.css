@@ -1,0 +1,326 @@
+
+#viewport_container{
+	margin:0px auto;
+	width: 35em;
+	max-height: 45em;
+	padding: 0;
+	overflow: hidden;
+}
+
+#year-select-container{
+	position: absolute;
+	overflow: hidden;
+	font-size: 1em;
+	max-height: 45em;
+	z-index: -1;
+	background-color: #f7f7f7;
+	color: #a1a1a1;
+}
+
+#year-sel{
+	width:2em;
+}
+
+#year-sel:hover{
+	background-color: #ff3b30;
+	border-radius: 0.1em;
+	color: #f7f7f7;
+}
+
+#year-num:hover{
+	background-color: #ff3b30;
+	border-radius: 0.1em;
+	color: #f7f7f7;
+}
+
+#ul-year{
+	list-style-type: none;
+	font-size:1.5em;
+	padding-left: 0;
+	padding-top: 0;
+	margin-top: 0;
+	transition-duration: 0.5s;
+}
+
+.yr-scroll{
+	position: absolute;
+	z-index: 1;
+	height: 2em;
+	width: 10em;
+	background-color: #f7f7f7;
+	color: #ff3b30;
+}
+
+.top-scr{
+	top:0;
+	background-color: #f7f7f7;
+}
+
+.top-arrow{
+	width: 0;
+	height: 0;
+	border:1em solid transparent;
+	border-bottom: 1em solid red;
+	margin: -0.5em auto;
+}
+
+.bottom-scr{
+	bottom: 0;
+}
+
+.bottom-arrow{
+	width: 0;
+	height: 0;
+	border:1em solid transparent;
+	border-top: 1em solid red;
+	margin: 0.5em auto;
+}
+
+.li-year{
+	margin-top: 0.5em;
+	padding-left: 2.2em;
+	width: 10em;
+}
+
+.yselected{
+	background-color: red;
+	color: white;
+}
+
+.center_container{
+	margin: 0px auto;
+	width: 35em;
+	overflow: hidden;
+	background-color: #ffffff;
+}
+
+#cal_header{
+	background-color: #f7f7f7;
+	height: 3.5em;
+	padding-top: 0.5em;
+}
+
+.li-inline{
+	display: inline;
+	position: relative;
+}
+
+.li-inline:first-child{
+	margin-left: 0.5em;
+}
+
+.li-right{
+	float:right;
+	width:1.5em;
+	margin-left: 0.25em;
+	margin-right: 0.25em;
+	text-align: center;
+}
+
+.li-right:hover{
+	background-color: #ff3b30;
+	color: #f7f7f7;
+	border-radius: 0.1em;
+}
+
+.nopadding{
+	padding: 0;
+}
+
+.highlighted{
+	color: #ff3b30;
+}
+
+
+#leftDivSwitch{
+	display: none;
+	margin: 0;
+}
+
+#leftDivSwitch:checked~.center_container {
+	transform: translateX(10em);
+	transition-duration: 1s;
+}
+
+#leftDivSwitch:checked~#year-select-container{
+	z-index: 0;
+}
+
+
+.title{
+	font-size: 1.5em;
+	margin: 0 0 0 0;
+}
+
+.big-title{
+	font-size: 1.5em;
+	font-weight: 600;
+	padding-left: 0.5em;
+}
+
+#year-month-sel{
+	display: none;
+}
+
+/*#select-year{*/
+	/*position: relative;*/
+	/*top:	0;*/
+	/*left:	0;*/
+/*}*/
+
+.weekline{
+	font-size: 0.8em;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.item_tr > td{
+	font-size: 1em;
+	width: 5em;
+	z-index: 1;
+	padding: 0;
+}
+
+.weekend{
+	color: #a2a2a2;
+}
+
+/*.dcontain > p{*/
+/*line-height: 0.8em;*/
+/*margin-top: 0.2em;*/
+/*margin-bottom: 0.2em;*/
+/*-webkit-margin-before: 0.2em;*/
+/*-webkit-margin-after: 0.2em;*/
+/*}*/
+
+.pdate{
+	margin-top: 0.2em;
+	margin-bottom: 0;
+	line-height: 0.8em;
+	font-size: 2em;
+	font-weight: 600;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.plunar{
+	height: 1.5em;
+	font-size: 1em;
+	font-weight: 500;
+	width: 2em;
+	margin: 0.1em auto 0 auto;
+}
+
+.lunar-start{
+	border-bottom: 2px solid #ff3b30;
+}
+
+#calendar{
+	border-collapse: collapse;
+	text-align: center;
+	background-color: #f7f7f7;
+}
+
+#calendar > tr{
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.dcontain{
+	width: 4em;
+	height: 4em;
+	border-radius: 2em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	padding-top: 0.1em;
+	float:left;
+	z-index: -1;
+}
+
+.today{
+	background-color: #ff3b30;
+	color: #ffffff;
+}
+
+.selected{
+	background-color: #000000;
+	color: #ffffff;
+}
+
+
+
+.dot{
+	width: 0.5em;
+	height: 0.5em;
+	background-color: #cccccc;
+	border-radius: 0.5em;
+	display: inline-block;
+	margin-bottom: 0.1em;
+	margin-left: 2.25em;
+	margin-top: 0.1em;
+	float: left;
+}
+
+.white-dot{
+	background-color: #f7f7f7;
+}
+
+#event-container{
+	max-height: 20em;  /*需要算一下*/
+	width: 100%;
+}
+
+.events{
+	padding-left: 0;
+	margin: 0 0 0 0;
+}
+
+.event-li {
+	list-style: none;
+	width: 100%;
+	margin-left: 0;
+	height: 4em;
+	border-bottom: 1px solid #b2b2b2;
+}
+
+.event-li > div{
+	float:left;
+}
+
+.event-time{
+	width: 25%;
+	padding-right: 5%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	border-right: 3px solid #ffffff;
+}
+
+.solar-term{
+	border-right-color: #ff3b30;
+}
+
+.public-holiday{
+	border-right-color: #cc73e1;
+}
+
+.lunar-holiday{
+	border-right-color: #ff3b30;
+}
+
+.event-time > p{
+	float:right;
+}
+
+.event-str{
+	width: 75%;
+	font-size: 1.5em;
+	padding-left: 3%;
+}
+
+*{
+	font-family: '微软雅黑', '黑体', 'Open Sans', sans-serif;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+}
