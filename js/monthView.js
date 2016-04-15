@@ -9,11 +9,14 @@ doneInit = false;   //是否已经初始化过
 ulYearYoffset = 0;
 
 function makeMonthView(year, month, day){
-    if(year < 1900 || month < 1|| month > 12 || day<1 || day>31) {
-        console.log("year/month is illegal, reset to 1992/03");
+    if(year < 1900 || year >2099
+        || month < 1|| month > 12
+        || day<1 || day>31) {
+        console.log("year/month is illegal, reset to my birthday");
         year = 1992;
         month = 3;
         day = 29;
+        selectedDay = 29;
     }
 
     //Make Calendar
@@ -141,13 +144,12 @@ function scrollYear(dir){
     ulYearYoffset -= (2 * dir);
     if(dir < 0){
         //往较小年份滚动
-
         if(ulYearYoffset > 5){
-            ulYearYoffset = 0;
+            ulYearYoffset = 4;
         }
     } else if(dir > 0){
-        if(ulYearYoffset < -105){
-            ulYearYoffset = -100;
+        if(ulYearYoffset < -95.5){
+            ulYearYoffset = -95.5;
         }
     }
     document.getElementById("ul-year").style.transform = "translateY(" + ulYearYoffset + "%)";
