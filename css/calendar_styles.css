@@ -111,6 +111,16 @@
 
 .li-right{
 	float:right;
+	width:1.5em;
+	margin-left: 0.25em;
+	margin-right: 0.25em;
+	text-align: center;
+}
+
+.li-right:hover{
+	background-color: #ff3b30;
+	color: #f7f7f7;
+	border-radius: 0.1em;
 }
 
 .nopadding{

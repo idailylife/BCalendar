@@ -23,12 +23,15 @@ function makeMonthView(year, month, day){
     makeMonthHeader( year, month);
     //Make Event View
     var eventObj = document.getElementById("events");
+    if(day > selectedDay){
+        day = selectedDay;
+    }
     makeEventsView(eventObj, calendarObj.caldates[day-1]);
     doneInit = true;
 }
 
 function selectDay(){
-    //TODO: 选择了某天，月视图中增加黑色圆背景，切换到当天的事件视图
+    //选择了某天，月视图中增加黑色圆背景，切换到当天的事件视图
     var divObj = this.firstChild;
     var tableChildren = document.getElementById("calendar").childNodes;
     if(selectedDay != -1
@@ -116,6 +119,11 @@ function makeMonthHeader(year, month){
         document.getElementById("month-right").addEventListener("click", function () {
             monthSelectionChange(1);
         });
+
+        document.getElementById("back-to-today").addEventListener("click", function () {
+            var dateObj = new Date();
+            makeMonthView(dateObj.getFullYear(), dateObj.getMonth()+1, dateObj.getDate());
+        });
     }
     var CLASS_NAME_LI_YEAR = "li-year";
     if(ulObj.children.length < 1){
@@ -151,7 +159,7 @@ function yearSelectionChange(){
 }
 
 function monthSelectionChange(type){
-    console.log(type);
+    //console.log(type);
     var year = calendarObj.year;
     var month = calendarObj.month + type;
     var day = selectedDay;
@@ -190,12 +198,20 @@ function makeMonthCalendar(tableObj, year, month){
 
     var calendar = new Calendar(year, month);
     calendar.makeCalendar(false);
+    if(selectedDay > calendar.caldates.length){
+        selectedDay = calendar.caldates.length;
+    }
+
     var offset = calendar.firstDayOffset;
     var lunarHelper = new LunarHelper();
 
     var row, col, objTr, objTd;
     var calIndex = 0, dateObj;
-    for(row = 0; row<5; row++){
+    var maxRow = 5;
+    if(calendar.caldates.length + offset > 35){
+        maxRow++;
+    }
+    for(row = 0; row<maxRow; row++){
         objTr = document.createElement("tr");
         objTr.className = CLASS_NAME_TR;
         for(col=0; col<7; col++){
@@ -220,6 +236,8 @@ function makeMonthCalendar(tableObj, year, month){
                 divObj.className = CLASS_NAME_DIV_CONTAINER;
                 if(dateObj.isToday()){
                     divObj.className += " " + CLASS_NAME_TODAY;
+                } else if(dateObj.day == selectedDay){
+                    divObj.className += " " + CLASS_NAME_DIV_CONTAINER_SELECTED;
                 }
                 var pObj = document.createElement("p");
                 pObj.className = CLASS_NAME_P_DATE;
