@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0070f898-6522-4797-9b2c-d1d29c9dc936" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/calendar_styles.css" afterPath="$PROJECT_DIR$/css/calendar_styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/dateHelper.js" afterPath="$PROJECT_DIR$/js/dateHelper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/monthView.js" afterPath="$PROJECT_DIR$/js/monthView.js" />
-    </list>
+    <list default="true" id="0070f898-6522-4797-9b2c-d1d29c9dc936" name="Default" comment="" />
     <ignored path="BCalendar.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monthView.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="monthView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/monthView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="151" column="33" selection-start-line="151" selection-start-column="33" selection-end-line="151" selection-end-column="33" />
+            <state relative-caret-position="1500">
+              <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dateHelper.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dateHelper.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/dateHelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-425">
-              <caret line="124" column="29" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="29" />
+            <state relative-caret-position="700">
+              <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -109,8 +104,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="344" />
-    <option name="y" value="129" />
+    <option name="x" value="94" />
+    <option name="y" value="93" />
     <option name="width" value="1764" />
     <option name="height" value="1192" />
   </component>
@@ -266,16 +261,16 @@
       <updated>1460685473431</updated>
       <workItem from="1460685475466" duration="3718000" />
       <workItem from="1460698795201" duration="7296000" />
-      <workItem from="1460709728095" duration="440000" />
+      <workItem from="1460709728095" duration="728000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11454000" />
+    <option name="totallyTimeSpent" value="11742000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="344" y="129" width="1764" height="1192" extended-state="0" />
-    <editor active="true" />
+    <frame x="94" y="93" width="1764" height="1192" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18728523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -417,18 +412,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/dateHelper.js">
+    <entry file="file://$PROJECT_DIR$/js/monthView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="124" column="29" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="29" />
+        <state relative-caret-position="1500">
+          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/monthView.js">
+    <entry file="file://$PROJECT_DIR$/js/dateHelper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="151" column="33" selection-start-line="151" selection-start-column="33" selection-end-line="151" selection-end-column="33" />
+        <state relative-caret-position="700">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
           <folding />
         </state>
       </provider>
