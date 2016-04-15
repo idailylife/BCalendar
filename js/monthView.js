@@ -35,6 +35,8 @@ function makeMonthView(year, month, day){
 }
 
 function registerEvents() {
+
+
     var calTableObj = document.getElementById("calendar");
     var startX, startY;
     calTableObj.addEventListener("touchstart", function (event) {
@@ -49,11 +51,17 @@ function registerEvents() {
         switch (direction){
             case 0:
                 break;
-            case 1: case 3:
+            case 1:
+                event.stopPropagation();
+                event.preventDefault();
+            case 3:
                 //Prev month
                 monthSelectionChange(1);
                 break;
-            case 2: case 4:
+            case 2:
+                event.stopPropagation();
+                event.preventDefault();
+            case 4:
                 monthSelectionChange(-1);
                 break;
             default:
@@ -194,6 +202,7 @@ function makeMonthHeader(year, month){
 
         document.getElementById("back-to-today").addEventListener("click", function () {
             var dateObj = new Date();
+            selectedDay = dateObj.getDate();
             makeMonthView(dateObj.getFullYear(), dateObj.getMonth()+1, dateObj.getDate());
         });
     }
